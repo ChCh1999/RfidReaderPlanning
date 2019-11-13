@@ -65,7 +65,7 @@ public class Particle {
         List<Reader> readerList = Method.Position2ReaderList(X);
 
         // 得到读写器开关状态数组
-        /**
+        /*
         boolean[][] state = new boolean[Parameter.slotNum][Parameter.readerNum];
         for (int i = 0; i < Parameter.slotNum; i++) {
             for (int j = 0; j < Parameter.readerNum; j++) {
@@ -81,8 +81,7 @@ public class Particle {
         //与之前的方法不同，由于现在粒子的状态用二进制数来表示，需要额外的转换
         boolean[][] state=new boolean[Parameter.slotNum][Parameter.readerNum];
         for(int i=0;i<Parameter.slotNum;i++){
-            int stateNumber=(int)X[Parameter.readerNum*2+i];
-//            System.out.printf("%d ",stateNumber);
+            int stateNumber=(int)(X[Parameter.readerNum*2+i]);
             for(int j=0;j<Parameter.readerNum;j++){
                 state[i][j]=((stateNumber&1)==1);
                 stateNumber=stateNumber>>>1;

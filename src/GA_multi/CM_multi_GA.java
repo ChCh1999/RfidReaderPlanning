@@ -107,7 +107,7 @@ public class CM_multi_GA {
      */
     private static void setTaskCompletionDegree(int task1Score, int task2Score, int task3Score, int task4Score) {
 //        System.out.printf("Score:%d %d %d %d",task1Score,task2Score,task3Score,task4Score);
-        task1CompletionDegree = (double) task1Score / (Parameter.scoreTask1 * Parameter.tagNum * Parameter.slotNum);
+        task1CompletionDegree = (double) task1Score / (Parameter.scoreTask1 * Parameter.tagNum * Parameter.slotNum * Parameter.readerNum);
         // Task 2 needs to be monitored in all timeslot
         int task2TagNumInAllSlots = 0;
 
@@ -119,10 +119,13 @@ public class CM_multi_GA {
             }
         }
 //        System.out.printf("%d %d;",task2Score/Parameter.scoreTask2,task2TagNumInAllSlots);
-        task2CompletionDegree = (double) task2Score  / (Parameter.scoreTask2 * task2TagNumInAllSlots * Parameter.readerNum);
+        task2CompletionDegree = (double) task2Score  / (Parameter.scoreTask2 * task2TagNumInAllSlots );
+        if(task2CompletionDegree >1)
+            task2CompletionDegree=1;
         task3CompletionDegree = (double) task3Score / (Parameter.scoreTask3 * Parameter.tagNum);
-        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum * Parameter.readerNum);
-
+        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum );
+        if(task4CompletionDegree >1)
+            task4CompletionDegree=1;
         averageScore = (task1CompletionDegree * Parameter.scoreTask1 +
                 task2CompletionDegree * Parameter.scoreTask2 +
                 task3CompletionDegree * Parameter.scoreTask3 +

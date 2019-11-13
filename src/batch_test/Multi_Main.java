@@ -17,6 +17,10 @@ public class Multi_Main {
 
         m.print(m.readerNum());
 		m.print(m.ri());
+//		for (int i =0;i<10;i++){
+//            m.print(m.readerNum());
+//            m.print(m.ri());
+//        }
     }
 
     /**

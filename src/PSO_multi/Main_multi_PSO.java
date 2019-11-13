@@ -90,8 +90,13 @@ public class Main_multi_PSO {
 //        );
 
         logger.info("-----end PSO_Multi_RS-----");
-        return new double[]{average, MultiFitness.task1CompletionDegree, MultiFitness.task2CompletionDegree
-                , MultiFitness.task3CompletionDegree, MultiFitness.task4CompletionDegree};
+        return new double[]{
+                average,
+                MultiFitness.task1CompletionDegree,
+                MultiFitness.task2CompletionDegree,
+                MultiFitness.task3CompletionDegree,
+                MultiFitness.task4CompletionDegree
+        };
     }
 
     public static double[] run_AOCM(List<Tag> tagList) {
@@ -165,8 +170,12 @@ public class Main_multi_PSO {
         );
 
         logger.info("-----end PSO_Multi_AOCM-----");
-        return new double[]{average, AOCM_multi_PSO.task1CompletionDegree, AOCM_multi_PSO.task2CompletionDegree
-                , AOCM_multi_PSO.task3CompletionDegree, AOCM_multi_PSO.task4CompletionDegree};
+        return new double[]{
+                average,
+                AOCM_multi_PSO.task1CompletionDegree,
+                AOCM_multi_PSO.task2CompletionDegree,
+                AOCM_multi_PSO.task3CompletionDegree,
+                AOCM_multi_PSO.task4CompletionDegree};
 
     }
 
@@ -190,39 +199,79 @@ public class Main_multi_PSO {
 //        System.out.println(Method.printSwarmInfo(swarm));
         logger.info(Method.printSwarmInfo(swarm));
         // Then run the final result again to update the task completion degree
-        AOCM_multi_PSO.globalTagList = tagList;
-        AOCM_multi_PSO r = new AOCM_multi_PSO();
+        CM_multi_PSO.globalTagList = tagList;
+        CM_multi_PSO r = new CM_multi_PSO();
 
         double average = r.evaluate(swarm.getBestPosition());
         System.out.printf("%.4f %.4f %.4f %.4f %.4f\n",
-                AOCM_multi_PSO.task1CompletionDegree,
-                AOCM_multi_PSO.task2CompletionDegree,
-                AOCM_multi_PSO.task3CompletionDegree,
-                AOCM_multi_PSO.task4CompletionDegree,
+                CM_multi_PSO.task1CompletionDegree,
+                CM_multi_PSO.task2CompletionDegree,
+                CM_multi_PSO.task3CompletionDegree,
+                CM_multi_PSO.task4CompletionDegree,
                 average);
 
 
-//        System.out.println("Task 1 completion:" + AOCM_multi_PSO.task1CompletionDegree);
-//        System.out.println("Task 2 completion:" + AOCM_multi_PSO.task2CompletionDegree);
-//        System.out.println("Task 3 completion:" + AOCM_multi_PSO.task3CompletionDegree);
-//        System.out.println("Task 4 completion:" + AOCM_multi_PSO.task4CompletionDegree);
+//        System.out.println("Task 1 completion:" + CM_multi_PSO.task1CompletionDegree);
+//        System.out.println("Task 2 completion:" + CM_multi_PSO.task2CompletionDegree);
+//        System.out.println("Task 3 completion:" + CM_multi_PSO.task3CompletionDegree);
+//        System.out.println("Task 4 completion:" + CM_multi_PSO.task4CompletionDegree);
 //        System.out.println("Average task completion:" +
-//                (AOCM_multi_PSO.task1CompletionDegree + AOCM_multi_PSO.task2CompletionDegree
-//                        + AOCM_multi_PSO.task3CompletionDegree + AOCM_multi_PSO.task4CompletionDegree) / 4
+//                (CM_multi_PSO.task1CompletionDegree + CM_multi_PSO.task2CompletionDegree
+//                        + CM_multi_PSO.task3CompletionDegree + CM_multi_PSO.task4CompletionDegree) / 4
 //        );
 
-        logger.info("Task 1 completion:" + AOCM_multi_PSO.task1CompletionDegree);
-        logger.info("Task 2 completion:" + AOCM_multi_PSO.task2CompletionDegree);
-        logger.info("Task 3 completion:" + AOCM_multi_PSO.task3CompletionDegree);
-        logger.info("Task 4 completion:" + AOCM_multi_PSO.task4CompletionDegree);
+        logger.info("Task 1 completion:" + CM_multi_PSO.task1CompletionDegree);
+        logger.info("Task 2 completion:" + CM_multi_PSO.task2CompletionDegree);
+        logger.info("Task 3 completion:" + CM_multi_PSO.task3CompletionDegree);
+        logger.info("Task 4 completion:" + CM_multi_PSO.task4CompletionDegree);
         logger.info("Average task completion:" +
-                (AOCM_multi_PSO.task1CompletionDegree + AOCM_multi_PSO.task2CompletionDegree
-                        + AOCM_multi_PSO.task3CompletionDegree + AOCM_multi_PSO.task4CompletionDegree) / 4
+                (CM_multi_PSO.task1CompletionDegree + CM_multi_PSO.task2CompletionDegree
+                        + CM_multi_PSO.task3CompletionDegree + CM_multi_PSO.task4CompletionDegree) / 4
         );
 
         logger.info("-----end PSO_Multi_CM-----");
-        return new double[]{average, AOCM_multi_PSO.task1CompletionDegree, AOCM_multi_PSO.task2CompletionDegree
-                , AOCM_multi_PSO.task3CompletionDegree, AOCM_multi_PSO.task4CompletionDegree};
+        return new double[]{
+                average,
+                CM_multi_PSO.task1CompletionDegree,
+                CM_multi_PSO.task2CompletionDegree,
+                CM_multi_PSO.task3CompletionDegree,
+                CM_multi_PSO.task4CompletionDegree
+        };
+
+        // AOCM vision
+//        AOCM_multi_PSO.globalTagList = tagList;
+//        AOCM_multi_PSO r = new AOCM_multi_PSO();
+//
+//        double average = r.evaluate(swarm.getBestPosition());
+//        System.out.printf("%.4f %.4f %.4f %.4f %.4f\n",
+//                AOCM_multi_PSO.task1CompletionDegree,
+//                AOCM_multi_PSO.task2CompletionDegree,
+//                AOCM_multi_PSO.task3CompletionDegree,
+//                AOCM_multi_PSO.task4CompletionDegree,
+//                average);
+//
+//
+////        System.out.println("Task 1 completion:" + AOCM_multi_PSO.task1CompletionDegree);
+////        System.out.println("Task 2 completion:" + AOCM_multi_PSO.task2CompletionDegree);
+////        System.out.println("Task 3 completion:" + AOCM_multi_PSO.task3CompletionDegree);
+////        System.out.println("Task 4 completion:" + AOCM_multi_PSO.task4CompletionDegree);
+////        System.out.println("Average task completion:" +
+////                (AOCM_multi_PSO.task1CompletionDegree + AOCM_multi_PSO.task2CompletionDegree
+////                        + AOCM_multi_PSO.task3CompletionDegree + AOCM_multi_PSO.task4CompletionDegree) / 4
+////        );
+//
+//        logger.info("Task 1 completion:" + AOCM_multi_PSO.task1CompletionDegree);
+//        logger.info("Task 2 completion:" + AOCM_multi_PSO.task2CompletionDegree);
+//        logger.info("Task 3 completion:" + AOCM_multi_PSO.task3CompletionDegree);
+//        logger.info("Task 4 completion:" + AOCM_multi_PSO.task4CompletionDegree);
+//        logger.info("Average task completion:" +
+//                (AOCM_multi_PSO.task1CompletionDegree + AOCM_multi_PSO.task2CompletionDegree
+//                        + AOCM_multi_PSO.task3CompletionDegree + AOCM_multi_PSO.task4CompletionDegree) / 4
+//        );
+//
+//        logger.info("-----end PSO_Multi_CM-----");
+//        return new double[]{average, AOCM_multi_PSO.task1CompletionDegree, AOCM_multi_PSO.task2CompletionDegree
+//                , AOCM_multi_PSO.task3CompletionDegree, AOCM_multi_PSO.task4CompletionDegree};
     }
 
     public static double[] run_BPSO(List<Tag> tagList) {
@@ -231,8 +280,10 @@ public class Main_multi_PSO {
         //System.out.println(PSO.getBestLocation());
         System.out.printf("%.4f %.4f %.4f %.4f %.4f\n",
                 BPSO_multi_PSO.task1CompletionDegree,
-                BPSO_multi_PSO.task2CompletionDegree, BPSO_multi_PSO.task3CompletionDegree,
-                BPSO_multi_PSO.task4CompletionDegree,PSO.getBestFitness());
+                BPSO_multi_PSO.task2CompletionDegree,
+                BPSO_multi_PSO.task3CompletionDegree,
+                BPSO_multi_PSO.task4CompletionDegree,
+                PSO.getBestFitness());
 
         return new double[]{
                 PSO.getBestFitness(), BPSO_multi_PSO.task1CompletionDegree,
@@ -243,27 +294,27 @@ public class Main_multi_PSO {
 
     public static double[] run_BPSOWithCM(List<Tag> tagList) {
         BPSOWithCM.run_CM(tagList);
-        Particle.particleNum=Parameter.slotNum;
-        BPSOWithCM.globalTagList=tagList;
+        Particle.particleNum = Parameter.slotNum;
+        BPSOWithCM.globalTagList = tagList;
         Swarm swarm = new Swarm(Parameter.particleNum,
                 new Particle(), new BPSOWithCM());
-        swarm.setMaxPosition(1<<Parameter.readerNum);
+        swarm.setMaxPosition(1 << Parameter.readerNum);
         swarm.setMinPosition(0);
-        Particle.particleNum=Parameter.slotNum;
+        Particle.particleNum = Parameter.slotNum;
         for (int i = 0; i < Parameter.cycleNum; i++)
             swarm.evolve();
-        double accuracy=swarm.getBestFitness();
+        double accuracy = swarm.getBestFitness();
         System.out.println(accuracy);
 
         return new double[]{
-                accuracy,BPSOWithCM.task1CompletionDegree,
+                accuracy,
+                BPSOWithCM.task1CompletionDegree,
                 BPSOWithCM.task2CompletionDegree,
                 BPSOWithCM.task3CompletionDegree,
                 BPSOWithCM.task4CompletionDegree
         };
 
     }
-
 
 
 }

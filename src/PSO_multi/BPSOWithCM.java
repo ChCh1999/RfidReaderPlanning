@@ -177,9 +177,9 @@ public class BPSOWithCM extends FitnessFunction {
                     task2TagNumInAllSlots++;
             }
         }
-        task2CompletionDegree = (double) task2Score / (Parameter.scoreTask2 * task2TagNumInAllSlots);
+        task2CompletionDegree = (double) task2Score / (Parameter.scoreTask2 * task2TagNumInAllSlots * Parameter.readerNum);
         task3CompletionDegree = (double) task3Score / (Parameter.scoreTask3 * Parameter.tagNum);
-        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum);
+        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum * Parameter.readerNum);
     }
 
     @Override

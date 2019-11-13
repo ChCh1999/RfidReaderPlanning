@@ -32,7 +32,7 @@ public class Parameter {
     /**
      * 迭代数量
      */
-    public static int cycleNum = 20;
+    public static int cycleNum = 1000;
 
     /**
      * 运行得到最大值的次数

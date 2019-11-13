@@ -88,7 +88,7 @@ public class Main_multi_GA {
                 +0.15*CM_multi_GA.task3CompletionDegree+0.7*CM_multi_GA.task4CompletionDegree;
         //System.out.println(totalaccuracy);
         System.out.printf("%.4f %.4f %.4f %.4f %.4f\n",
-                CM_multi_GA.task1CompletionDegree,
+        CM_multi_GA.task1CompletionDegree,
                 CM_multi_GA.task2CompletionDegree,
                 CM_multi_GA.task3CompletionDegree,
                 CM_multi_GA.task4CompletionDegree,

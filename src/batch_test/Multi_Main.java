@@ -5,7 +5,7 @@ import PSO_multi.Main_multi_PSO;
 import base.Tag;
 import util.Parameter;
 import util.PathFactory;
-
+import util.FileUtil;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -22,7 +22,12 @@ public class Multi_Main {
 //            m.print(m.ri());
 //        }
     }
+    public static void test_multi_main(){
+        Multi_Main m = new Multi_Main();
 
+        m.print(m.readerNum());
+        m.print(m.ri());
+    }
     /**
      * 运行所有算法一次
      */
@@ -58,56 +63,107 @@ public class Multi_Main {
 
     private void print(double[][][] res) {
         DecimalFormat df = new DecimalFormat("#.0000");
+        String filename= String.valueOf(System.currentTimeMillis());
+        FileUtil filewriter = new FileUtil("res\\"+filename);
+//        for (int j = 0; j < 5; j++) {
+//            System.out.print("PSO_RS = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][0][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//            System.out.print("PSO_AOCM = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][1][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//
+//            System.out.print("PSO_CM = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][2][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//
+//            System.out.print("GA_RS = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][3][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//
+//            System.out.print("GA_AOCM = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][4][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//
+//            System.out.print("GA_CM = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][5][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//
+//            System.out.print("PSO_BPSO = [");
+//            for (int i = 0; i < res.length; i++) {
+//                System.out.print(df.format(res[i][6][j]) + " ");
+//            }
+//            System.out.print("];");
+//            System.out.print("\n");
+//            System.out.println();
+//        }
         for (int j = 0; j < 5; j++) {
-            System.out.print("PSO_RS = [");
+            filewriter.writemsg("PSO_RS = [");
             for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][0][j]) + " ");
+                filewriter.writemsg(df.format(res[i][0][j]) + " ");
             }
-            System.out.print("];");
-            System.out.print("\n");
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
+            filewriter.writemsg("PSO_AOCM = [");
+            for (int i = 0; i < res.length; i++) {
+                filewriter.writemsg(df.format(res[i][1][j]) + " ");
+            }
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
 
-            System.out.print("PSO_AOCM = [");
+            filewriter.writemsg("PSO_CM = [");
             for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][1][j]) + " ");
+                filewriter.writemsg(df.format(res[i][2][j]) + " ");
             }
-            System.out.print("];");
-            System.out.print("\n");
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
 
-            System.out.print("PSO_CM = [");
+            filewriter.writemsg("GA_RS = [");
             for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][2][j]) + " ");
+                filewriter.writemsg(df.format(res[i][3][j]) + " ");
             }
-            System.out.print("];");
-            System.out.print("\n");
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
 
-            System.out.print("GA_RS = [");
+            filewriter.writemsg("GA_AOCM = [");
             for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][3][j]) + " ");
+                filewriter.writemsg(df.format(res[i][4][j]) + " ");
             }
-            System.out.print("];");
-            System.out.print("\n");
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
 
-            System.out.print("GA_AOCM = [");
+            filewriter.writemsg("GA_CM = [");
             for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][4][j]) + " ");
+                filewriter.writemsg(df.format(res[i][5][j]) + " ");
             }
-            System.out.print("];");
-            System.out.print("\n");
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
 
-            System.out.print("GA_CM = [");
+            filewriter.writemsg("PSO_BPSO = [");
             for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][5][j]) + " ");
+                filewriter.writemsg(df.format(res[i][6][j]) + " ");
             }
-            System.out.print("];");
-            System.out.print("\n");
-
-            System.out.print("PSO_BPSO = [");
-            for (int i = 0; i < res.length; i++) {
-                System.out.print(df.format(res[i][6][j]) + " ");
-            }
-            System.out.print("];");
-            System.out.print("\n");
-            System.out.println();
+            filewriter.writemsg("];");
+            filewriter.writemsg("\n");
+            filewriter.writemsg("\n");
         }
     }
 

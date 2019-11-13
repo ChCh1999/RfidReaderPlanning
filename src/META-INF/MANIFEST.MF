@@ -1,3 +1,5 @@
 Manifest-Version: 1.0
-Main-Class: batch_test.Multi_Main
+Class-Path: log4j-1.2.17.jar jenetics-4.3.0.jar log4j-1.2.17.jar jenet
+ ics-4.3.0.jar jswarm-pso_2_08.jar
+Main-Class: batch_test.test_multi_main
 

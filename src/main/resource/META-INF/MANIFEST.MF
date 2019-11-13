@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: jswarm-pso_2_08.jar log4j-1.2.17.jar jenetics-4.3.0.jar
+Main-Class: batch_test.Multi_Main
+

@@ -37,7 +37,7 @@ public class Parameter {
     /**
      * 运行得到最大值的次数
      */
-    public static int runCycle = 1;
+    public static int runCycle = 1000;
     /**
      * 读写器识别半径
      */

@@ -64,7 +64,7 @@ public class Multi_Main {
     private void print(double[][][] res) {
         DecimalFormat df = new DecimalFormat("#.0000");
         String filename= String.valueOf(System.currentTimeMillis());
-        FileUtil filewriter = new FileUtil("res\\"+filename);
+        FileUtil filewriter = new FileUtil("res/"+filename);
 //        for (int j = 0; j < 5; j++) {
 //            System.out.print("PSO_RS = [");
 //            for (int i = 0; i < res.length; i++) {

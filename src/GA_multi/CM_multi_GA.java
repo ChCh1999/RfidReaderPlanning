@@ -92,6 +92,7 @@ public class CM_multi_GA {
                 else if (maxIndex == 1) task2Score += maxScore;
                 else if (maxIndex == 2) task3Score += maxScore;
                 else if (maxIndex == 3) task4Score += maxScore;
+
                 // If you select the third task, need to update the localTag
                 if (maxIndex == 2)
                     localTagList.removeAll(tagList3);
@@ -106,32 +107,26 @@ public class CM_multi_GA {
      * Set global variables - how complete each task is
      */
     private static void setTaskCompletionDegree(int task1Score, int task2Score, int task3Score, int task4Score) {
-//        System.out.printf("Score:%d %d %d %d",task1Score,task2Score,task3Score,task4Score);
-        task1CompletionDegree = (double) task1Score / (Parameter.scoreTask1 * Parameter.tagNum * Parameter.slotNum * Parameter.readerNum);
-        // Task 2 needs to be monitored in all timeslot
+        task1CompletionDegree = (double) task1Score / (Parameter.scoreTask1 * Parameter.tagNum * Parameter.slotNum);
+        // Task 2 needs to be monitored in all timeslots
         int task2TagNumInAllSlots = 0;
-
-        for (int i = 0; i < Parameter.slotNum; i += Parameter.interval) {
-            for (Tag t : globalTagList) {
+        for (Tag t : globalTagList) {
+            for (int i = 0; i < Parameter.slotNum; i += Parameter.interval) {
                 if (Method.pointLocateInArea(t.locList.get(i).x, t.locList.get(i).y,
                         Parameter.task2MinPosition, Parameter.task2MaxPosition))
                     task2TagNumInAllSlots++;
             }
         }
-//        System.out.printf("%d %d;",task2Score/Parameter.scoreTask2,task2TagNumInAllSlots);
-        task2CompletionDegree = (double) task2Score  / (Parameter.scoreTask2 * task2TagNumInAllSlots );
-        if(task2CompletionDegree >1)
-            task2CompletionDegree=1;
+        task2CompletionDegree = (double) task2Score / (Parameter.scoreTask2 * task2TagNumInAllSlots);
         task3CompletionDegree = (double) task3Score / (Parameter.scoreTask3 * Parameter.tagNum);
-        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum );
-        if(task4CompletionDegree >1)
-            task4CompletionDegree=1;
+        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum);
+
         averageScore = (task1CompletionDegree * Parameter.scoreTask1 +
                 task2CompletionDegree * Parameter.scoreTask2 +
                 task3CompletionDegree * Parameter.scoreTask3 +
                 task4CompletionDegree * Parameter.scoreTask4)
                 /
                 (Parameter.scoreTask1 + Parameter.scoreTask2 + Parameter.scoreTask3
-                        + Parameter.scoreTask4);
+                        +Parameter.scoreTask4);
     }
 }

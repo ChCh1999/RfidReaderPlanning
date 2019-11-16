@@ -1,15 +1,16 @@
-package PSO_multi;
+package GA_multi;
 
 import base.Reader;
 import base.Tag;
 import util.Method;
 import util.Parameter;
+import util.PathFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class BPSO_multi_PSO {
+public class BPSO_multi_GA {
     /**
      * Record all tags, do not change with iteration
      */
@@ -32,9 +33,21 @@ public class BPSO_multi_PSO {
      */
     public static double task4CompletionDegree;
 
-    public static double evaluate(List<Reader> readerList, List<Tag> tagListglobal, boolean[][] state) {
+    public static double evaluate(double[] position){
+        /*
+        position's length is 2*readernum+slotnum
+        The first 2*readernum represents the locations of readers
+        The rest is the state of readers
+         */
+        List<Reader> readerList=Method.Position2ReaderList(position);
+        boolean[][] state=Method.Position2ReaderState(position,2*Parameter.readerNum,position.length,Parameter.slotNum,Parameter.readerNum);
+        double fitness=calculateFitness(readerList,state);
+        return fitness;
+    }
 
-        globalTagList = tagListglobal;
+    public static double calculateFitness(List<Reader> readerList, boolean[][] state) {
+
+        //globalTagList = tagListglobal;
 
         // Generate a local tag collection, initial value all tags
         List<Tag> localTagList = new ArrayList<>();
@@ -137,4 +150,5 @@ public class BPSO_multi_PSO {
         task3CompletionDegree = (double) task3Score / (Parameter.scoreTask3 * Parameter.tagNum);
         task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum);
     }
+
 }

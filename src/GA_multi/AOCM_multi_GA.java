@@ -5,6 +5,7 @@ import base.Reader;
 import base.Tag;
 import util.Method;
 import util.Parameter;
+import util.PathFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,7 +15,7 @@ public class AOCM_multi_GA {
     /**
      * Record all tags, do not change with iteration
      */
-    static List<Tag> globalTagList;
+    static List<Tag> globalTagList= PathFactory.createPath("normal");
     /**
      * Record task 1 completion
      */

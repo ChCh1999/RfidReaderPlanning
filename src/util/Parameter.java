@@ -32,12 +32,12 @@ public class Parameter {
     /**
      * 迭代数量
      */
-    public static int cycleNum = 500;
+    public static int cycleNum = 10;
 
     /**
      * 运行得到最大值的次数
      */
-    public static int runCycle = 4;
+    public static int runCycle = 1;
     /**
      * 读写器识别半径
      */

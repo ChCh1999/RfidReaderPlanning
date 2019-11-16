@@ -43,13 +43,11 @@ public class PathFactory {
                 tagList.add(new Tag(i, locList));
             }
         } else if (mode.equals("conveyor")) {
-            //运送者模式
             for (int i = 0; i < Parameter.tagNum; i++) {
                 List<Location> locList = GenerateLocation.generateConveyorLocationList();
                 tagList.add(new Tag(i, locList));
             }
         } else  if (mode.equals("robot")) {
-            //机器人模式
             for (int i = 0; i < Parameter.tagNum; i++) {
                 List<Location> locList = GenerateLocation.generateRobotLocationList();
                 tagList.add(new Tag(i, locList));

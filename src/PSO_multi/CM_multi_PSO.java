@@ -9,7 +9,7 @@ import util.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CM_multi_PSO extends FitnessFunction {
+public class CM_multi_PSO extends FitnessFunction{
     /**
      * Record all tags, do not change with iteration
      */
@@ -101,15 +101,16 @@ public class CM_multi_PSO extends FitnessFunction {
                 task4CompletionDegree * Parameter.scoreTask4)
                 /
                 (Parameter.scoreTask1 + Parameter.scoreTask2 + Parameter.scoreTask3
-                        + Parameter.scoreTask4);
+                        +Parameter.scoreTask4);
     }
+
 
 
     /**
      * Set global variables - how complete each task is
      */
     private void setTaskCompletionDegree(int task1Score, int task2Score, int task3Score, int task4Score) {
-        task1CompletionDegree = (double) task1Score / (Parameter.scoreTask1 * Parameter.tagNum * Parameter.slotNum * Parameter.readerNum);
+        task1CompletionDegree = (double) task1Score / (Parameter.scoreTask1 * Parameter.tagNum * Parameter.slotNum);
         // Task 2 needs to be monitored in all timeslots
         int task2TagNumInAllSlots = 0;
         for (Tag t : globalTagList) {
@@ -119,13 +120,8 @@ public class CM_multi_PSO extends FitnessFunction {
                     task2TagNumInAllSlots++;
             }
         }
-        double mutil_weight=Parameter.readerNum * 4 * Math.pow((Parameter.ri / (Parameter.maxPosition-Parameter.minPosition)),2);
-        task2CompletionDegree = (double) task2Score / (Parameter.scoreTask2 * task2TagNumInAllSlots * mutil_weight);
-        if(task2CompletionDegree >1)
-            task2CompletionDegree=1;
+        task2CompletionDegree = (double) task2Score / (Parameter.scoreTask2 * task2TagNumInAllSlots);
         task3CompletionDegree = (double) task3Score / (Parameter.scoreTask3 * Parameter.tagNum);
-        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum * mutil_weight);
-        if(task4CompletionDegree >1)
-            task4CompletionDegree=1;
+        task4CompletionDegree = (double) task4Score / (Parameter.scoreTask4 * Parameter.slotNum);
     }
 }

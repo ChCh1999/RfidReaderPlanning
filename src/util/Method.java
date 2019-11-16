@@ -64,6 +64,7 @@ public class Method {
      */
     public static List<Reader> Position2ReaderList(double[] position) {
         List<Reader> readerList = new ArrayList<>();
+        //System.out.println(position.length);
         for (int i = 0; i < Parameter.readerNum; i++) {
             Reader r = new Reader(i, new Location(position[2 * i], position[2 * i + 1]));
             readerList.add(r);
@@ -84,5 +85,18 @@ public class Method {
         }
         return state;
     }
+    public static boolean[][] Position2ReaderState(double[] position,int start,int end,int slotNum,int readerNum){
+        boolean[][] state=new boolean[slotNum][readerNum];
+        //System.out.println("Position dimentionality is:"+position.length);
+        for(int i=start;i<end;i++){
+            int stateNumber=(int)position[i];
+            for(int j=0;j<Parameter.readerNum;j++){
+                state[i-start][j]=((stateNumber&1)==1);
+                stateNumber=stateNumber>>>1;
+            }
+        }
+        return state;
+    }
+
 
 }

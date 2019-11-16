@@ -12,7 +12,7 @@ public class Parameter {
     /**
      * 读写器部署区域的最大值
      */
-    public static double maxPosition = 6;
+    public static double maxPosition = 10;
 
     /**
      * 读写器部署区域的最小值
@@ -32,12 +32,12 @@ public class Parameter {
     /**
      * 迭代数量
      */
-    public static int cycleNum = 1000;
+    public static int cycleNum = 500;
 
     /**
      * 运行得到最大值的次数
      */
-    public static int runCycle = 1;
+    public static int runCycle = 4;
     /**
      * 读写器识别半径
      */

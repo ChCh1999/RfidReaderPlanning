@@ -43,7 +43,13 @@ public class Main_multi_PSO {
         //run_CM(PathFactory.createPath("normal"));
         //run_AOCM(PathFactory.createPath("normal"));
         //run_RS(PathFactory.createPath("normal"));
-        run_BPSO(PathFactory.createPath("normal"));
+//        run_BPSO(PathFactory.createPath("normal"));
+        for(Parameter.readerNum=15;Parameter.readerNum<=20;Parameter.readerNum++) {
+            System.out.printf("Readernum:%d PSO-RS\n",Parameter.readerNum);
+            for(int i=0;i<3;i++) {
+                run_RS(PathFactory.createPath("normal"));
+            }
+        }
     }
 
     public static double[] run_RS(List<Tag> tagList) {

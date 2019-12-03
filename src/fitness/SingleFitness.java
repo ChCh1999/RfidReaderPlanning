@@ -92,12 +92,12 @@ public class SingleFitness {
     public static double readerDistance(List<Reader> readerList){
         double res=0;
         //double totalDistance=0;
-        for (int i = 0; i < readerList.size(); i++) {
-            for (int j = i + 1; j < readerList.size(); j++) {
-                Reader r1 = readerList.get(i);
-                Reader r2 = readerList.get(j);
-                double distance = Math.sqrt(Math.pow(r1.loc.x - r2.loc.x, 2) + Math.pow(r1.loc.y - r2.loc.y, 2));
-                res += distance;
+        for(int i=0;i<readerList.size();i++){
+            for(int j=i+1;j<readerList.size();j++){
+                Reader r1=readerList.get(i);
+                Reader r2=readerList.get(j);
+                double distance=Math.sqrt(Math.pow(r1.loc.x-r2.loc.x,2)+Math.pow(r1.loc.y-r2.loc.y,2));
+                res+=distance;
             }
         }
         return res*Parameter.distancefactor;

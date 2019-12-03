@@ -45,9 +45,22 @@ public class Main_multi_PSO {
         //run_RS(PathFactory.createPath("normal"));
 //        run_BPSO(PathFactory.createPath("normal"));
         for(Parameter.readerNum=15;Parameter.readerNum<=20;Parameter.readerNum++) {
+            System.out.printf("Readernum:%d PSO-AOCM\n",Parameter.readerNum);
+            for(int i=0;i<10;i++) {
+                run_AOCM(PathFactory.createPath("normal"));
+            }
+        }
+
+        for(Parameter.readerNum=15;Parameter.readerNum<=20;Parameter.readerNum++) {
             System.out.printf("Readernum:%d PSO-RS\n",Parameter.readerNum);
-            for(int i=0;i<3;i++) {
+            for(int i=0;i<10;i++) {
                 run_RS(PathFactory.createPath("normal"));
+            }
+        }
+        for(Parameter.readerNum=5;Parameter.readerNum<=20;Parameter.readerNum++) {
+            System.out.printf("Readernum:%d PSO-CM\n",Parameter.readerNum);
+            for(int i=0;i<10;i++) {
+                run_CM(PathFactory.createPath("normal"));
             }
         }
     }

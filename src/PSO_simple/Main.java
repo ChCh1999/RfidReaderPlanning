@@ -107,10 +107,10 @@ public class Main {
         System.out.printf("%.4f\n",result);
         return result;
     }
+
     public static double run_BPSO(List<Tag> tagList) {
         PSO.process(tagList, "single");
 //        System.out.println(PSO.getBestFitness());
-        System.out.println(PSO.getBestFitness());
         return PSO.getBestFitness();
     }
 }

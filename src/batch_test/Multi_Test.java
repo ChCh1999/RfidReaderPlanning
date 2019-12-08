@@ -24,7 +24,7 @@ public class Multi_Test {
         for (Parameter.readerNum = 5; Parameter.readerNum <= 20; Parameter.readerNum++) {
             System.out.printf("Readernum:%d \nPSO_AOCM\n", Parameter.readerNum);
             filewriter.writemsg(String.format("Readernum:%d \nPSO_AOCM\n", Parameter.readerNum));
-            for (int i = 0; i <= 10; i++) {
+            for (int i = 0; i < 10; i++) {
                 res = Main_multi_PSO.run_AOCM(PathFactory.createPath("normal"));
                 filewriter.writemsg(String.format("%.4f %.4f %.4f %.4f %.4f\n",
                         res[1], res[2], res[3], res[4], res[0]));
